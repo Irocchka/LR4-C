@@ -32,12 +32,11 @@ namespace лр4_1
             Console.WriteLine("Введите диапазон");
             min = Convert.ToInt32(Console.ReadLine());
             max = Convert.ToInt32(Console.ReadLine());
-            int v = rd.Next(min, max);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
                 {
-                    mass[i, j] = v;
+                    mass[i, j] =rd.Next(min, max);
                 }
             }
         }
