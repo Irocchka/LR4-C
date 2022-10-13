@@ -30,9 +30,6 @@ namespace лр4_1
             this.m = m;
             mass = new int[this.n, this.m];
             Random rd = new Random(); //обращение к классу случайных величин
-            Console.WriteLine("Введите диапазон");
-            min = Convert.ToInt32(Console.ReadLine());
-            max = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
