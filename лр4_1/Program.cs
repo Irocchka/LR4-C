@@ -6,14 +6,14 @@ namespace лр4_1
     {
         int n;
         int m;
-        int[,] mass;
+        double[,] mass;
         public MyMatrix(int n, int m)
         {
             this.n = n;
             this.m = m;
-            mass = new int[this.n, this.m];
+            mass = new double[this.n, this.m];
         }
-        public int this[int i, int j]//индекстатор
+        public double this[int i, int j]//индекстатор
         {
             get
             {
@@ -28,7 +28,7 @@ namespace лр4_1
         {
             this.n = n;
             this.m = m;
-            mass = new int[this.n, this.m];
+            mass = new double[this.n, this.m];
             Random rd = new Random(); //обращение к классу случайных величин
             for (int i = 0; i < n; i++)
             {
@@ -108,7 +108,7 @@ namespace лр4_1
         }
         public static MyMatrix operator *(MyMatrix a, MyMatrix b)
         {
-            int res = 0;
+            double res = 0;
             MyMatrix c = new MyMatrix(a.n, b.m);
             if (a.m == b.n)
             {
