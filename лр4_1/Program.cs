@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace лр4_1
 {
@@ -24,11 +24,12 @@ namespace лр4_1
                 mass[i, j] = value;
             }
         }
-        public void Write()
+        public MyMatrix(int n, int m,int min,int max)
         {
+            this.n = n;
+            this.m = m;
+            mass = new int[this.n, this.m];
             Random rd = new Random(); //обращение к классу случайных величин
-            int min = 0;
-            int max = 0;
             Console.WriteLine("Введите диапазон");
             min = Convert.ToInt32(Console.ReadLine());
             max = Convert.ToInt32(Console.ReadLine());
@@ -36,7 +37,7 @@ namespace лр4_1
             {
                 for (int j = 0; j < m; j++)
                 {
-                    mass[i, j] =rd.Next(min, max);
+                    mass[i, j] = rd.Next(min, max);
                 }
             }
         }
@@ -120,37 +121,34 @@ namespace лр4_1
             Console.WriteLine("Введите размерзность матрицы");
             int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
-            MyMatrix m1 = new MyMatrix(n, m);
-            MyMatrix m2 = new MyMatrix(n, m);
-            MyMatrix m3 = new MyMatrix(n, m);
-            MyMatrix m4 = new MyMatrix(n, m);
-            MyMatrix m5 = new MyMatrix(n, m);
-            MyMatrix m6 = new MyMatrix(n, m);
+            Console.WriteLine("Введите диапазон");
+            int min = Convert.ToInt32(Console.ReadLine());
+            int max = Convert.ToInt32(Console.ReadLine());
+            MyMatrix m1 = new MyMatrix(n, m,min,max);
+            MyMatrix m2 = new MyMatrix(n, m, min, max);
             Console.WriteLine("Матрица А: ");
-            m1.Write();
             m1.Read();
             Console.WriteLine("Матрица Б: ");
-            m2.Write();
             m2.Read();
             Console.WriteLine("Сложение матриц А и Б: ");
-            m3 = m1 + m2;
+            MyMatrix m3 = m1 + m2;
             m3.Read();
             Console.WriteLine("Умножение матриц А и Б: ");
-            m4 = m1 * m2;
+            MyMatrix m4 = m1 * m2;
             m4.Read();
             Console.WriteLine("Вычитание матриц А и Б: ");
-            m5 = m1 - m2;
+            MyMatrix m5 = m1 - m2;
             m5.Read();
             Console.WriteLine("Умножение матриц А на число: ");
             Console.WriteLine("Введите число: ");
             int number = Convert.ToInt32(Console.ReadLine());
-            m5 = m1*number;
-            m5.Read();
+            MyMatrix m6 = m1*number;
+            m6.Read();
             Console.WriteLine("Деление матриц А на число: ");
             Console.WriteLine("Введите число: ");
             int numb = Convert.ToInt32(Console.ReadLine());
-            m6 = m1 * numb;
-            m6.Read();
+            MyMatrix m7 = m1 * numb;
+            m7.Read();
         }
         }
 }
