@@ -77,37 +77,55 @@ namespace лр4_1
         public static MyMatrix operator +(MyMatrix a, MyMatrix b)
         {
             MyMatrix c = new MyMatrix(a.n, a.m);
-            for (int i = 0; i < a.n; i++)
+            if (a.n == b.n && a.m == b.n)
             {
-                for (int j = 0; j < a.m; j++)
+                for (int i = 0; i < a.n; i++)
                 {
-                    c[i, j] = a[i, j]+b[i,j];
+                    for (int j = 0; j < a.m; j++)
+                    {
+                        c[i, j] = a[i, j] + b[i, j];
+                    }
                 }
             }
+            else Console.WriteLine("нельзя");
             return c;
         }
         public static MyMatrix operator -(MyMatrix a, MyMatrix b)
         {
             MyMatrix c = new MyMatrix(a.n, a.m);
-            for (int i = 0; i < a.n; i++)
+            if (a.n == b.n && a.m == b.n)
             {
-                for (int j = 0; j < a.m; j++)
+                for (int i = 0; i < a.n; i++)
                 {
-                    c[i, j] = a[i, j] - b[i, j];
+                    for (int j = 0; j < a.m; j++)
+                    {
+                        c[i, j] = a[i, j] - b[i, j];
+                    }
                 }
             }
+            else Console.WriteLine("нельзя");
             return c;
         }
         public static MyMatrix operator *(MyMatrix a, MyMatrix b)
         {
-            MyMatrix c = new MyMatrix(a.n, a.m);
-            for (int i = 0; i < a.n; i++)
+            int res = 0;
+            MyMatrix c = new MyMatrix(a.n, b.m);
+            if (a.m == b.n)
             {
-                for (int j = 0; j < a.m; j++)
+                for (int i = 0; i < a.n; i++)
                 {
-                    c[i, j] = a[i, j] * b[i, j];
+                    for (int j = 0; j < b.m; j++)
+                    {
+                        for (int s = 0; s < a.m; s++)
+                        {
+                            res += a[i, s] * b[s, j];
+                        }
+                        c[i, j] = res;
+                        res = 0;
+                    }
                 }
             }
+            else Console.WriteLine("нельзя");
             return c;
         }
     }
@@ -115,14 +133,17 @@ namespace лр4_1
         {
             static void Main(string[] args)
             {
-            Console.WriteLine("Введите размерзность матрицы");
+            Console.WriteLine("Введите размерзность матрицы A");
             int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите размерзность матрицы Б");
+            int nn = Convert.ToInt32(Console.ReadLine());
+            int mm = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите диапазон");
             int min = Convert.ToInt32(Console.ReadLine());
             int max = Convert.ToInt32(Console.ReadLine());
             MyMatrix m1 = new MyMatrix(n, m,min,max);
-            MyMatrix m2 = new MyMatrix(n, m, min, max);
+            MyMatrix m2 = new MyMatrix(nn, mm, min, max);
             Console.WriteLine("Матрица А: ");
             m1.Read();
             Console.WriteLine("Матрица Б: ");
