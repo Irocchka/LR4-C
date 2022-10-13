@@ -165,7 +165,7 @@ namespace лр4_1
             Console.WriteLine("Деление матриц А на число: ");
             Console.WriteLine("Введите число: ");
             int numb = Convert.ToInt32(Console.ReadLine());
-            MyMatrix m7 = m1 * numb;
+            MyMatrix m7 = m1 / numb;
             m7.Read();
         }
         }
